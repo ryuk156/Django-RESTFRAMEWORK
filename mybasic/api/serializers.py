@@ -5,7 +5,8 @@ from .models import Blog
 class BlogSerializers(serializers.ModelSerializer):
     class Meta:
         model=Blog
-        fields=["id","title","author","email"]
+        fields=["id","title","author","email"
+        ]
 
 
 
@@ -21,9 +22,9 @@ class BlogSerializers(serializers.ModelSerializer):
     
     
     def create(self, validated_data):
-        """
+    
         Create and return a new `Snippet` instance, given the validated data.
-        """
+    
         return Blog.objects.create(validated_data)
     
 
@@ -31,9 +32,9 @@ class BlogSerializers(serializers.ModelSerializer):
        
     def update(self, instance, validated_data):
 
-        """
+        
         Update and return an existing `Snippet` instance, given the validated data.
-        """  
+    
 
         instance.title = validated_data.get('title', instance.title)
         instance.author = validated_data.get('author', instance.author)
